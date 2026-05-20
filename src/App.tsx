@@ -5,11 +5,13 @@ import Home from './pages/home'
 import NotFound from './pages/not-found'
 import MyAccount from './pages/my-account'
 import RestaurantOrder from './pages/restaurant-order'
+import UniversityDashboard from './pages/university-dashboard'
 
 const pages = [
   { path: '/', title: 'Home', component: Home },
   { path: '/my-account', title: 'My Account', component: MyAccount },
   { path: '/restaurant-order', title: 'Restaurant Order', component: RestaurantOrder },
+  { path: '/university-dashboard', title: 'University Dashboard', component: UniversityDashboard },
 ]
 
 function App() {

@@ -15,6 +15,11 @@ export default function Home() {
       path: '/restaurant-order',
       description: 'Japanese restaurant menu with order summary and payment flow.',
     },
+    {
+      title: 'University Dashboard',
+      path: '/university-dashboard',
+      description: 'Student portal with class schedule, graduation progress, and support team.',
+    },
   ]
 
   return (

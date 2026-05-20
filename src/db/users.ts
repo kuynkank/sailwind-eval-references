@@ -12,14 +12,29 @@ export interface MockUser {
   username: string
   displayName: string
   initials: string
+  avatarUrl: string
 }
 
 export const mockUsers: MockUser[] = [
-  { username: 'john.smith', displayName: 'John Smith', initials: 'JS' },
-  { username: 'alice.chen', displayName: 'Alice Chen', initials: 'AC' },
-  { username: 'bob.martinez', displayName: 'Bob Martinez', initials: 'BM' },
-  { username: 'carol.white', displayName: 'Carol White', initials: 'CW' },
-  { username: 'david.kim', displayName: 'David Kim', initials: 'DK' },
+  { username: 'karen.anderson', displayName: 'Karen Anderson', initials: 'KA', avatarUrl: '' },
+  {
+    username: 'marsha.mccoy',
+    displayName: 'Marsha McCoy',
+    initials: 'MM',
+    avatarUrl: '/images/avatar-marsha.jpg',
+  },
+  {
+    username: 'praveen.sharma',
+    displayName: 'Praveen Sharma',
+    initials: 'PS',
+    avatarUrl: '/images/avatar-praveen.jpg',
+  },
+  {
+    username: 'sara.vargas',
+    displayName: 'Sara Vargas',
+    initials: 'SV',
+    avatarUrl: '/images/avatar-sara.jpg',
+  },
 ]
 
 /** Look up a display name from a username */
@@ -32,4 +47,10 @@ export function getDisplayName(username: string): string {
 export function getInitials(username: string): string {
   const user = mockUsers.find((u) => u.username === username)
   return user?.initials ?? username.slice(0, 2).toUpperCase()
+}
+
+/** Look up avatar URL from a username */
+export function getAvatarUrl(username: string): string {
+  const user = mockUsers.find((u) => u.username === username)
+  return user?.avatarUrl ?? ''
 }
