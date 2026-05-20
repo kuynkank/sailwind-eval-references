@@ -4,10 +4,12 @@ import { useHashLocation } from 'wouter/use-hash-location'
 import Home from './pages/home'
 import NotFound from './pages/not-found'
 import MyAccount from './pages/my-account'
+import RestaurantOrder from './pages/restaurant-order'
 
 const pages = [
   { path: '/', title: 'Home', component: Home },
   { path: '/my-account', title: 'My Account', component: MyAccount },
+  { path: '/restaurant-order', title: 'Restaurant Order', component: RestaurantOrder },
 ]
 
 function App() {

@@ -6,6 +6,7 @@ export default function Home() {
 
   const pages: { title: string; path: string; description: string }[] = [
     { title: 'My Account', path: '/my-account', description: 'InsureCorp account overview with payment, drivers, and vehicle coverage.' },
+    { title: 'Restaurant Order', path: '/restaurant-order', description: 'Japanese restaurant menu with order summary and payment flow.' },
   ]
 
   return (
