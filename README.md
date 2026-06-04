@@ -9,6 +9,7 @@ Each page is a carefully built example of a real-world UI pattern using the [Sai
 | Page | Route | Screenshot |
 |------|-------|------------|
 | My Account | `/#/my-account` | `screenshots/my-account.png` |
+| Restaurant Order | `/#/restaurant-order` | `screenshots/restaurant-order.png` |
 
 ## Capturing Screenshots
 

@@ -51,6 +51,24 @@ Most components accept these optional props. They are not repeated in each table
 | `buttons` | `ButtonWidgetProps[]` | ✓ | Array of button configurations |
 | `align` | `SAILAlign` |  | Determines alignment of buttons |
 
+### ButtonToggle
+
+| Prop | Type | Req | Description |
+|------|------|:---:|-------------|
+| `label` | `string` |  | Text to display as the field label |
+| `text` | `string` |  | Text to display on the toggle button |
+| `required` | `boolean` |  | Determines if a value is required to submit the form |
+| `disabled` | `boolean` |  | Determines if the field should display as grayed out |
+| `value` | `boolean` |  | Current pressed state (true = pressed, false = unpressed) |
+| `validations` | `string[]` |  | Validation errors to display below the field |
+| `saveInto` | `(value: boolean) => void` |  | Callback when the user toggles the button |
+| `onChange` | `(value: boolean) => void` |  | Callback when the user toggles the button (React-style alias for saveInto) |
+| `size` | `SAILSize` |  | Size of the toggle button |
+| `color` | `ACCENT / POSITIVE / NEGATIVE / SECONDARY / STANDARD / SAILColorInput` |  | Color when toggle is pressed (hex or semantic) |
+| `style` | `SOLID / OUTLINE / GHOST` |  | Determines the button's appearance |
+| `icon` | `string` |  | Icon to display in the button |
+| `iconPosition` | `START / END` |  | Position of icon relative to text |
+
 ### ButtonWidget
 
 | Prop | Type | Req | Description |
@@ -478,21 +496,6 @@ Most components accept these optional props. They are not repeated in each table
 | `link` | `any` |  | Link to apply to the stamp |
 | `shape` | `SAILShape` |  | Determines the stamp shape |
 
-### SwitchField
-
-| Prop | Type | Req | Description |
-|------|------|:---:|-------------|
-| `label` | `string` |  | Text to display as the field label |
-| `required` | `boolean` |  | Determines if a value is required to submit the form |
-| `disabled` | `boolean` |  | Determines if the field should display as grayed out |
-| `value` | `boolean` |  | Current checked state (true = on, false = off) |
-| `validations` | `string[]` |  | Validation errors to display below the field |
-| `saveInto` | `(value: boolean) => void` |  | Callback when the user toggles the switch |
-| `onChange` | `(value: boolean) => void` |  | Callback when the user toggles the switch (React-style alias for saveInto) |
-| `size` | `SAILSize` |  | Size of the switch and its label |
-| `color` | `ACCENT / POSITIVE / NEGATIVE / SECONDARY / STANDARD / SAILColorInput` |  | Color when switch is on (hex or semantic) |
-| `switchLabelPosition` | `LEFT / RIGHT` |  | Position of the inline label relative to the switch control: LEFT or RIGHT |
-
 ### TabsField
 
 | Prop | Type | Req | Description |
@@ -562,19 +565,14 @@ Most components accept these optional props. They are not repeated in each table
 
 | Prop | Type | Req | Description |
 |------|------|:---:|-------------|
-| `label` | `string` |  | Text to display as the field label |
-| `text` | `string` |  | Text to display on the toggle button |
+| `choiceLabel` | `string` |  | Text to display as the label next to the toggle |
 | `required` | `boolean` |  | Determines if a value is required to submit the form |
 | `disabled` | `boolean` |  | Determines if the field should display as grayed out |
-| `value` | `boolean` |  | Current pressed state (true = pressed, false = unpressed) |
+| `value` | `boolean` |  | Current checked state (true = on, false = off) |
 | `validations` | `string[]` |  | Validation errors to display below the field |
-| `saveInto` | `(value: boolean) => void` |  | Callback when the user toggles the button |
-| `onChange` | `(value: boolean) => void` |  | Callback when the user toggles the button (React-style alias for saveInto) |
-| `size` | `SAILSize` |  | Size of the toggle button |
-| `color` | `ACCENT / POSITIVE / NEGATIVE / SECONDARY / STANDARD / SAILColorInput` |  | Color when toggle is pressed (hex or semantic) |
-| `style` | `SOLID / OUTLINE / GHOST` |  | Determines the button's appearance |
-| `icon` | `string` |  | Icon to display in the button |
-| `iconPosition` | `START / END` |  | Position of icon relative to text |
+| `saveInto` | `(value: boolean) => void` |  | Callback when the user toggles the switch |
+| `onChange` | `(value: boolean) => void` |  | Callback when the user toggles the switch (React-style alias for saveInto) |
+| `choicePosition` | `START / END` |  | Determines whether the toggle appears on the left or right of the choice label. Valid values: "START" (default), "END" |
 
 ### UserImage
 
