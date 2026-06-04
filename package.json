@@ -8,6 +8,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "check": "pnpm run lint && pnpm run format:check",
     "preview": "vite preview",
     "check:colors": "node scripts/check-color-palette.js"
   },
