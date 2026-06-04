@@ -15,13 +15,13 @@ import { ComponentName } from '@pglevy/sailwind'
 
 **Display:** `HeadingField`, `RichTextDisplayField`, `TextItem`, `Icon`, `ImageField`, `MessageBanner`, `TagField`, `TagItem`, `StampField`, `ProgressBar`, `MilestoneField`
 
-**Input:** `TextField`, `DropdownField`, `MultipleDropdownField`, `CheckboxField`, `RadioButtonField`, `SwitchField`, `ToggleField`, `SliderField`
+**Input:** `TextField`, `DropdownField`, `MultipleDropdownField`, `CheckboxField`, `RadioButtonField`, `ToggleField`, `SliderField`
 
 **Actions:** `ButtonWidget`, `ButtonArrayLayout`, `DialogField`, `TabsField`
 
 **Utility:** `FieldLabel`, `FieldWrapper`
 
-**Other:** `ChatAssistantMessage`, `ChatConfirmation`, `ChatFeedback`, `ChatInput`, `ChatPanel`, `ChatUserMessage`, `GridColumn`, `ParagraphField`, `ReadOnlyGrid`, `RecordView`, `SiteNav`
+**Other:** `ButtonToggle`, `ChatAssistantMessage`, `ChatConfirmation`, `ChatFeedback`, `ChatInput`, `ChatPanel`, `ChatUserMessage`, `GridColumn`, `ParagraphField`, `ReadOnlyGrid`, `RecordView`, `SiteNav`
 
 **Total: 40 components**
 
