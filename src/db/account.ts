@@ -80,7 +80,10 @@ const vehicles: Vehicle[] = [
     coverages: [
       { type: 'Comprehensive', details: ['$500 Deductible'] },
       { type: 'Collision', details: ['$500 Deductible'] },
-      { type: 'Bodily Injury', details: ['$250,000 Limit Per Person', '$500,000 Limit Per Incident'] },
+      {
+        type: 'Bodily Injury',
+        details: ['$250,000 Limit Per Person', '$500,000 Limit Per Incident'],
+      },
       { type: 'Property Damage', details: ['$100,000 Limit Per Incident'] },
     ],
   },
@@ -93,7 +96,10 @@ const vehicles: Vehicle[] = [
     coverages: [
       { type: 'Comprehensive', details: ['$500 Deductible'] },
       { type: 'Collision', details: ['$500 Deductible'] },
-      { type: 'Bodily Injury', details: ['$250,000 Limit Per Person', '$500,000 Limit Per Incident'] },
+      {
+        type: 'Bodily Injury',
+        details: ['$250,000 Limit Per Person', '$500,000 Limit Per Incident'],
+      },
       { type: 'Property Damage', details: ['$100,000 Limit Per Incident'] },
     ],
   },

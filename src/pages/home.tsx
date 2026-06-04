@@ -5,12 +5,20 @@ export default function Home() {
   const [, setLocation] = useLocation()
 
   const pages: { title: string; path: string; description: string }[] = [
-    { title: 'My Account', path: '/my-account', description: 'InsureCorp account overview with payment, drivers, and vehicle coverage.' },
-    { title: 'Restaurant Order', path: '/restaurant-order', description: 'Japanese restaurant menu with order summary and payment flow.' },
+    {
+      title: 'My Account',
+      path: '/my-account',
+      description: 'InsureCorp account overview with payment, drivers, and vehicle coverage.',
+    },
+    {
+      title: 'Restaurant Order',
+      path: '/restaurant-order',
+      description: 'Japanese restaurant menu with order summary and payment flow.',
+    },
   ]
 
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="mx-auto max-w-4xl space-y-6">
       <HeadingField text="Sailwind Starter" size="LARGE_PLUS" fontWeight="BOLD" align="CENTER" />
 
       <MessageBanner
@@ -20,8 +28,13 @@ export default function Home() {
         icon="info"
       />
 
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <HeadingField text="Pages" size="MEDIUM_PLUS" fontWeight="SEMI_BOLD" marginBelow="STANDARD" />
+      <div className="rounded-lg bg-white p-6 shadow-md">
+        <HeadingField
+          text="Pages"
+          size="MEDIUM_PLUS"
+          fontWeight="SEMI_BOLD"
+          marginBelow="STANDARD"
+        />
         <div className="space-y-3">
           {pages.map((page, index) => (
             <div key={index}>
@@ -36,12 +49,7 @@ export default function Home() {
                     linkStyle="STANDALONE"
                   />,
                   <br key="br" />,
-                  <TextItem
-                    key="desc"
-                    text={page.description}
-                    color="SECONDARY"
-                    size="STANDARD"
-                  />
+                  <TextItem key="desc" text={page.description} color="SECONDARY" size="STANDARD" />,
                 ]}
                 marginBelow="EVEN_LESS"
               />

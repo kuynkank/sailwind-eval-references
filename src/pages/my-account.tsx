@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 import {
   CardLayout,
   HeadingField,
@@ -7,7 +7,7 @@ import {
   TagField,
   StampField,
   TabsField,
-} from "@pglevy/sailwind";
+} from '@pglevy/sailwind'
 import {
   getPaymentInfo,
   getDrivers,
@@ -15,18 +15,18 @@ import {
   type PaymentInfo,
   type Driver,
   type Vehicle,
-} from "../db/account";
+} from '../db/account'
 
 export default function MyAccount() {
-  const [payment, setPayment] = useState<PaymentInfo | undefined>(undefined);
-  const [drivers, setDrivers] = useState<Driver[]>([]);
-  const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+  const [payment, setPayment] = useState<PaymentInfo | undefined>(undefined)
+  const [drivers, setDrivers] = useState<Driver[]>([])
+  const [vehicles, setVehicles] = useState<Vehicle[]>([])
 
   useEffect(() => {
-    getPaymentInfo().then(setPayment);
-    getDrivers().then(setDrivers);
-    getVehicles().then(setVehicles);
-  }, []);
+    getPaymentInfo().then(setPayment)
+    getDrivers().then(setDrivers)
+    getVehicles().then(setVehicles)
+  }, [])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -45,16 +45,16 @@ export default function MyAccount() {
       </div>
 
       {/* Tabs + content */}
-      <div className="px-0 pt-3 max-w-7xl mx-auto **:[[role='tabpanel']]:px-2">
+      <div className="mx-auto max-w-7xl px-0 pt-3 **:[[role='tabpanel']]:px-2">
         <TabsField
           tabs={[
             {
-              value: "overview",
-              label: "Overview",
+              value: 'overview',
+              label: 'Overview',
               content: (
-                <div className="flex gap-8 pt-4 flex-col lg:flex-row">
+                <div className="flex flex-col gap-8 pt-4 lg:flex-row">
                   {/* Left column */}
-                  <div className="lg:w-1/3 shrink-0 space-y-8">
+                  <div className="shrink-0 space-y-8 lg:w-1/3">
                     {/* Payment section */}
                     <div>
                       <HeadingField
@@ -72,7 +72,7 @@ export default function MyAccount() {
                         height="AUTO"
                       >
                         {/* Next Payment */}
-                        <div className="border-b border-gray-200 pb-4 mb-4">
+                        <div className="mb-4 border-b border-gray-200 pb-4">
                           <HeadingField
                             text="Next Payment"
                             size="EXTRA_SMALL"
@@ -80,7 +80,7 @@ export default function MyAccount() {
                             headingTag="H3"
                             marginBelow="LESS"
                             color="SECONDARY"
-                            className="uppercase tracking-wider"
+                            className="tracking-wider uppercase"
                           />
                           <div className="flex items-center justify-between">
                             <RichTextDisplayField
@@ -88,7 +88,7 @@ export default function MyAccount() {
                               value={[
                                 <TextItem
                                   key="amount"
-                                  text={payment?.nextPaymentAmount ?? ""}
+                                  text={payment?.nextPaymentAmount ?? ''}
                                   size="MEDIUM"
                                   style="STRONG"
                                 />,
@@ -100,7 +100,7 @@ export default function MyAccount() {
                               value={[
                                 <TextItem
                                   key="due"
-                                  text={payment?.nextPaymentDue ?? ""}
+                                  text={payment?.nextPaymentDue ?? ''}
                                   size="STANDARD"
                                 />,
                               ]}
@@ -119,15 +119,15 @@ export default function MyAccount() {
                             headingTag="H3"
                             marginBelow="LESS"
                             color="SECONDARY"
-                            className="uppercase tracking-wider"
+                            className="tracking-wider uppercase"
                           />
-                          <div className="flex items-center justify-between mb-2">
+                          <div className="mb-2 flex items-center justify-between">
                             <RichTextDisplayField
                               labelPosition="COLLAPSED"
                               value={[
                                 <TextItem
                                   key="source"
-                                  text={payment?.paymentSource ?? ""}
+                                  text={payment?.paymentSource ?? ''}
                                   size="STANDARD"
                                 />,
                               ]}
@@ -155,9 +155,9 @@ export default function MyAccount() {
                               size="SMALL"
                               tags={[
                                 {
-                                  text: "AUTOPAY",
-                                  backgroundColor: "#1155cc",
-                                  textColor: "#ffffff",
+                                  text: 'AUTOPAY',
+                                  backgroundColor: '#1155cc',
+                                  textColor: '#ffffff',
                                 },
                               ]}
                               marginBelow="NONE"
@@ -167,7 +167,7 @@ export default function MyAccount() {
                               value={[
                                 <TextItem
                                   key="desc"
-                                  text={payment?.autopayDescription ?? ""}
+                                  text={payment?.autopayDescription ?? ''}
                                   color="SECONDARY"
                                   size="SMALL"
                                 />,
@@ -199,9 +199,7 @@ export default function MyAccount() {
                           <div
                             key={driver.id}
                             className={
-                              index < drivers.length - 1
-                                ? "border-b border-gray-200 pb-4 mb-4"
-                                : ""
+                              index < drivers.length - 1 ? 'mb-4 border-b border-gray-200 pb-4' : ''
                             }
                           >
                             <HeadingField
@@ -211,7 +209,7 @@ export default function MyAccount() {
                               headingTag="H3"
                               marginBelow="LESS"
                               color="SECONDARY"
-                              className="uppercase tracking-wider"
+                              className="tracking-wider uppercase"
                             />
                             <div className="flex items-center gap-3">
                               <StampField
@@ -292,9 +290,7 @@ export default function MyAccount() {
                         <div
                           key={vehicle.id}
                           className={
-                            vIndex < vehicles.length - 1
-                              ? "border-b border-gray-200 pb-6 mb-6"
-                              : ""
+                            vIndex < vehicles.length - 1 ? 'mb-6 border-b border-gray-200 pb-6' : ''
                           }
                         >
                           <HeadingField
@@ -304,7 +300,7 @@ export default function MyAccount() {
                             headingTag="H3"
                             marginBelow="LESS"
                             color="SECONDARY"
-                            className="uppercase tracking-wider"
+                            className="tracking-wider uppercase"
                           />
                           <div className="flex gap-6">
                             {/* Vehicle name + edit */}
@@ -344,7 +340,14 @@ export default function MyAccount() {
                                   <RichTextDisplayField
                                     labelPosition="COLLAPSED"
                                     marginBelow="NONE"
-                                    value={[<TextItem key="type" text={coverage.type} size="STANDARD" style="STRONG" />]}
+                                    value={[
+                                      <TextItem
+                                        key="type"
+                                        text={coverage.type}
+                                        size="STANDARD"
+                                        style="STRONG"
+                                      />,
+                                    ]}
                                     className="[&>div]:leading-tight"
                                   />
                                   {coverage.details.map((detail, i) => (
@@ -352,7 +355,9 @@ export default function MyAccount() {
                                       key={i}
                                       labelPosition="COLLAPSED"
                                       marginBelow="NONE"
-                                      value={[<TextItem key="detail" text={detail} size="STANDARD" />]}
+                                      value={[
+                                        <TextItem key="detail" text={detail} size="STANDARD" />,
+                                      ]}
                                     />
                                   ))}
                                 </div>
@@ -381,22 +386,14 @@ export default function MyAccount() {
               ),
             },
             {
-              value: "claims",
-              label: "Claims",
-              content: (
-                <div className="py-8 text-gray-500">
-                  Claims content coming soon.
-                </div>
-              ),
+              value: 'claims',
+              label: 'Claims',
+              content: <div className="py-8 text-gray-500">Claims content coming soon.</div>,
             },
             {
-              value: "preferences",
-              label: "Preferences",
-              content: (
-                <div className="py-8 text-gray-500">
-                  Preferences content coming soon.
-                </div>
-              ),
+              value: 'preferences',
+              label: 'Preferences',
+              content: <div className="py-8 text-gray-500">Preferences content coming soon.</div>,
             },
           ]}
           defaultValue="overview"
@@ -405,5 +402,5 @@ export default function MyAccount() {
         />
       </div>
     </div>
-  );
+  )
 }
