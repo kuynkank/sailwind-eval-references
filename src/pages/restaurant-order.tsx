@@ -144,6 +144,7 @@ export default function RestaurantOrder() {
         <HeadingField text="Menu" size="LARGE_PLUS" fontWeight="BOLD" marginBelow="EVEN_LESS" />
         <RichTextDisplayField labelPosition="COLLAPSED" value={[<TextItem key="d" text="Tuesday, 24 Feb 2025" size="MEDIUM" />]} />
         <TabsField
+          color="GREEN_600"
           className="[&_button]:bg-transparent"
           tabs={categories.map(cat => ({
             value: cat,
