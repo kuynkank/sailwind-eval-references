@@ -24,12 +24,12 @@ export const mockUsers: MockUser[] = [
 
 /** Look up a display name from a username */
 export function getDisplayName(username: string): string {
-  const user = mockUsers.find(u => u.username === username)
+  const user = mockUsers.find((u) => u.username === username)
   return user?.displayName ?? username
 }
 
 /** Look up initials from a username */
 export function getInitials(username: string): string {
-  const user = mockUsers.find(u => u.username === username)
+  const user = mockUsers.find((u) => u.username === username)
   return user?.initials ?? username.slice(0, 2).toUpperCase()
 }

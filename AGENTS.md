@@ -76,4 +76,5 @@ export default function PageName() {
 - [ ] All SAIL prop values UPPERCASE
 - [ ] Page added to routes in `src/App.tsx`
 - [ ] Page link added to `src/pages/home.tsx`
+- [ ] `pnpm run check` passes (lint + format check)
 - [ ] `pnpm run build` passes with no errors

@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Format with Prettier",
+  "description": "Runs pnpm format after each Kiro session to keep all src files consistently formatted",
+  "version": "1",
+  "when": {
+    "type": "agentStop"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "pnpm run format"
+  }
+}
