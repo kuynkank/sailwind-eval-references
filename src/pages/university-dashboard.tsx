@@ -7,7 +7,6 @@ import {
   ImageField,
   ButtonArrayLayout,
   TabsField,
-  StampField,
 } from '@pglevy/sailwind'
 import { GraduationCap, MapPin, CircleCheck, Circle, Info } from 'lucide-react'
 import {
@@ -20,6 +19,10 @@ import {
   type SupportTeamMember,
   type GraduationRequirement,
 } from '../db/university'
+
+// Custom brand colors for this page (not available as SAIL palette tokens)
+const PAGE_BACKGROUND = '#f3f0f6'
+const HIGHLIGHT_CARD_BACKGROUND = '#f1e8f4'
 
 export default function UniversityDashboard() {
   const [schedule, setSchedule] = useState<DaySchedule[]>([])
@@ -35,19 +38,16 @@ export default function UniversityDashboard() {
   }, [])
 
   return (
-    <div className="flex min-h-screen bg-[#f3f0f6]">
+    <div className="flex min-h-screen" style={{ backgroundColor: PAGE_BACKGROUND }}>
       {/* Left Sidebar */}
-      <div className="w-72 flex-shrink-0 bg-white shadow-md">
+      <div className="w-72 shrink-0 bg-white shadow-md">
         <CardLayout padding="LESS" showShadow={false} showBorder={false} style="NONE">
           {/* Profile Section */}
           <div className="border-b border-gray-200 px-3 py-3">
             <div className="flex items-center gap-3">
               <ImageField
-                label=""
                 labelPosition="COLLAPSED"
-                images={[
-                  { imageType: 'user' as const, user: { name: 'Karen Anderson', initials: 'KA' } },
-                ]}
+                images={[{ document: '/images/avatar-karen.jpg', altText: 'Karen Anderson' }]}
                 size="TINY"
                 style="AVATAR"
               />
@@ -82,7 +82,7 @@ export default function UniversityDashboard() {
               orientation="VERTICAL"
               variant="UNDERLINE"
               color="PURPLE_800"
-              className="[&_[role=tablist]]:w-full [&_button]:justify-start"
+              className="[&_button]:justify-start **:[[role=tablist]]:w-full"
               marginBelow="NONE"
             />
           </div>
@@ -117,7 +117,7 @@ export default function UniversityDashboard() {
 
       {/* Main Content */}
       <div className="flex-1 overflow-auto p-6">
-        <CardLayout padding="MORE" showBorder={false} style="#f3f0f6">
+        <CardLayout padding="MORE" showBorder={false} style={PAGE_BACKGROUND}>
           <div className="flex gap-6">
             {/* Class Schedule Column */}
             <div className="flex-1">
@@ -183,7 +183,7 @@ export default function UniversityDashboard() {
                             />
                           </div>
                           <div className="flex w-[22%] items-center gap-1">
-                            <MapPin size={14} className="flex-shrink-0 text-gray-600" />
+                            <MapPin size={14} className="shrink-0 text-gray-600" />
                             <span className="text-sm text-gray-700">{cls.location}</span>
                           </div>
                         </div>
@@ -215,24 +215,24 @@ export default function UniversityDashboard() {
                 {/* Gauge + Degree Info */}
                 <div className="mb-4 flex items-center gap-4">
                   {' '}
-                  <div className="relative h-16 w-16 flex-shrink-0">
+                  <div className="relative h-16 w-16 shrink-0">
                     <svg className="h-16 w-16 -rotate-90" viewBox="0 0 36 36">
                       <path
                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                         fill="none"
-                        stroke="#e5e7eb"
+                        className="stroke-gray-300"
                         strokeWidth="3"
                       />
                       <path
                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                         fill="none"
-                        stroke="#5B3180"
+                        className="stroke-purple-800"
                         strokeWidth="3"
                         strokeDasharray="77, 100"
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <GraduationCap size={20} className="text-[#555]" />
+                      <GraduationCap size={20} className="text-gray-700" />
                     </div>
                   </div>
                   <div>
@@ -321,12 +321,12 @@ export default function UniversityDashboard() {
                   {graduationRequirements.map((req) => (
                     <div key={req.id} className="flex items-center gap-2">
                       {req.done ? (
-                        <CircleCheck size={20} className="flex-shrink-0 text-green-600" />
+                        <CircleCheck size={20} className="shrink-0 text-green-600" />
                       ) : (
-                        <Circle size={20} className="flex-shrink-0 text-gray-400" />
+                        <Circle size={20} className="shrink-0 text-gray-400" />
                       )}
                       <span className="flex-1 text-sm">{req.label}</span>
-                      <Info size={14} className="flex-shrink-0 text-gray-400" />
+                      <Info size={14} className="shrink-0 text-gray-400" />
                     </div>
                   ))}
                 </div>
@@ -334,22 +334,28 @@ export default function UniversityDashboard() {
 
               {/* Registration Banner */}
               <CardLayout
-                padding="STANDARD"
+                padding="LESS"
                 showShadow={true}
                 showBorder={false}
-                style="#f1e8f4"
+                style={HIGHLIGHT_CARD_BACKGROUND}
                 marginBelow="MORE"
                 decorativeBarPosition="TOP"
                 decorativeBarColor="PURPLE_800"
               >
-                <div className="flex items-center gap-4">
-                  <StampField
-                    icon="notebook-pen"
-                    backgroundColor="GRAY_50"
-                    contentColor="PURPLE_800"
-                    size="LARGE"
-                    shape="SEMI_ROUNDED"
-                  />
+                <div className="flex items-center gap-6">
+                  <div className="w-48 shrink-0">
+                    <ImageField
+                      labelPosition="COLLAPSED"
+                      images={[
+                        {
+                          document: '/images/reading-side.svg',
+                          altText: 'Student reading illustration',
+                        },
+                      ]}
+                      size="FIT"
+                      isThumbnail={false}
+                    />
+                  </div>
                   <div>
                     <RichTextDisplayField
                       labelPosition="COLLAPSED"
@@ -358,7 +364,7 @@ export default function UniversityDashboard() {
                           key="reg"
                           text="Spring Semester Class Registration is Now Open"
                           color="PURPLE_800"
-                          size="MEDIUM_PLUS"
+                          size="MEDIUM"
                           style="STRONG"
                         />,
                       ]}
@@ -368,9 +374,9 @@ export default function UniversityDashboard() {
                       buttons={[
                         {
                           label: 'Register Now',
-                          icon: 'pen-fancy',
-                          size: 'STANDARD',
-                          style: 'SOLID',
+                          icon: 'pen',
+                          size: 'SMALL',
+                          style: 'OUTLINE',
                           color: 'PURPLE_800',
                         },
                       ]}
@@ -398,7 +404,7 @@ export default function UniversityDashboard() {
                     <img
                       src={member.avatarUrl}
                       alt={member.name}
-                      className="h-16 w-16 flex-shrink-0 rounded-full"
+                      className="h-16 w-16 shrink-0 rounded-full"
                     />
                     <div className="flex-1">
                       <RichTextDisplayField

@@ -16,7 +16,7 @@ export interface MockUser {
 }
 
 export const mockUsers: MockUser[] = [
-  { username: 'karen.anderson', displayName: 'Karen Anderson', initials: 'KA', avatarUrl: '' },
+  { username: 'karen.anderson', displayName: 'Karen Anderson', initials: 'KA', avatarUrl: '/images/avatar-karen.jpg' },
   {
     username: 'marsha.mccoy',
     displayName: 'Marsha McCoy',
